@@ -1,0 +1,33 @@
+{% extends 'main_page/base.html' %}
+
+{% block body %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Full name</th>
+                <th>Created at</th>
+            </tr>
+        </thead>
+        {% for item in object_list %}
+        <tbody>
+            <tr>
+                <td>{{ item.id }}</td>
+                <td>{{ item.username }}</td>
+                <td>{{ item.first_name }} {{ item.last_name }}</td>
+                <td>{{ item.date_joined }}</td>
+                <td>
+                    <form action="{% url 'update' pk=item.id %}">
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                    <br>
+                    <a href="{% url 'delete_user' pk=item.id %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

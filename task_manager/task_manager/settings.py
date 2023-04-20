@@ -26,7 +26,11 @@ SECRET_KEY = 'django-insecure-wl_d2h17+wobyql3_18y@!(r@peaq+5)2$exgz4=9rd)6(7%+2
 DEBUG = True
 
 ALLOWED_HOSTS = []
+AUTH_USER_MODEL = 'users.User'
 
+LOGIN_REDIRECT_URL = '/'
+
+LOGIN_URL = 'login/'
 
 # Application definition
 
@@ -37,7 +41,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'main_page'
+    'main_page',
+    'bootstrap4',
+    'users',
+    'statuses',
+    'tasks',
 ]
 
 MIDDLEWARE = [
@@ -106,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Europe/Moscow'
 
 USE_I18N = True
 

@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from .forms import UserRegistration
 from django.views.generic import CreateView, ListView, UpdateView, DeleteView
 from .models import User

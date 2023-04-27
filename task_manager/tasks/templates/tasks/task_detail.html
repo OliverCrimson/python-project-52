@@ -1,0 +1,23 @@
+{% extends 'main_page/base.html' %}
+{% load bootstrap4 %}
+
+{% block body %}
+    <br>
+<h2>Details</h2>
+<br>
+<div class="jumbotron">
+
+  <h1 class="display-4">{{ tasks.name }}</h1>
+  <p class="lead">{{ tasks.description }}</p>
+  <hr class="my-4">
+  <p>Executor : {{ tasks.executor }}</p>
+  <p>Status : {{ tasks.status.name }}</p>
+  <p>Created at : {{ tasks.date }} </p>
+                       <a href="{% url 'task_edit' pk=tasks.id %}">Edit</a>
+
+                        <a href="{% url 'task_delete' pk=tasks.id %}">Delete</a>
+
+
+</div>
+
+{% endblock %}

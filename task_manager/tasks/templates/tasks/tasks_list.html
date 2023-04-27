@@ -1,0 +1,40 @@
+{% extends 'main_page/base.html' %}
+
+{% block body %}
+    <div>
+        <form action="{% url 'task_create' %}">
+            <button type="submit" class="btn btn-primary">Create task</button>
+        </form>
+    </div>
+    <br>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Author</th>
+                <th>Executor</th>
+                <th>Created at</th>
+
+            </tr>
+        </thead>
+        {% for item in object_list %}
+        <tbody>
+            <tr>
+                <td>{{ item.id }}</td>
+                <td><a href="{% url 'task_details' pk=item.id %}">{{ item.name }}</a></td>
+                <td>Author</td>
+                <td>{{ item.executor }}</td>
+                <td>{{ item.date }}</td>
+                <td>
+                       <a href="{% url 'task_edit' pk=item.id %}">Edit</a>
+
+                        <a href="{% url 'task_delete' pk=item.id %}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+{% endblock %}

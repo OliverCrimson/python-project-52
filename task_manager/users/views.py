@@ -24,4 +24,5 @@ class UsersList(ListView):
 class DeleteUserView(DeleteView):
     model = User
     template_name = 'users/user_delete.html'
+    context_object_name = 'user'
     success_url = '/'

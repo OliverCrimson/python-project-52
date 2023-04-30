@@ -1,25 +1,26 @@
 {% extends 'main_page/base.html' %}
 
 {% block body %}
+    <a href="{% url 'label_create' %}">Create new label</a>
+    <br>
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Username</th>
-                <th>Full name</th>
-                <th>Created at</th>
+                <th>Name</th>
+                <th>Date</th>
+
             </tr>
         </thead>
         {% for item in object_list %}
         <tbody>
             <tr>
                 <td>{{ item.id }}</td>
-                <td>{{ item.username }}</td>
-                <td>{{ item.first_name }} {{ item.last_name }}</td>
-                <td>{{ item.date_joined }}</td>
+                <td>{{ item.name }}</td>
+                <td>{{ item.date }}</td>
                 <td>
-                    <a href="{% url 'update' pk=item.id %}">Update</a>
-                    <a href="{% url 'delete_user' pk=item.id %}"> Delete</a>
+                    <a href="{% url 'label_edit' pk=item.id %}">Edit</a>
+                    <a href="{% url 'label_delete' pk=item.id %}">Delete</a>
                 </td>
             </tr>
         {% endfor %}

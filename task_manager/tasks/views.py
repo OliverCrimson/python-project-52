@@ -7,6 +7,7 @@ from .forms import CreateTask
 class TasksList(ListView):
     model = Tasks
     template_name = 'tasks/tasks_list.html'
+    context_object_name = 'tasks'
 
 
 class TaskCreate(CreateView):

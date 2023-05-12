@@ -9,9 +9,11 @@ class Tasks(models.Model):
     name = models.CharField(max_length=140)
     description = models.TextField()
     status = models.ForeignKey(Statuses, on_delete=models.PROTECT)
-    executor = models.ForeignKey(User, on_delete=models.PROTECT)
+    executor = models.ForeignKey(User, on_delete=models.PROTECT, default=True)
+    made_by = models.ForeignKey(User, on_delete=models.PROTECT, related_name='author', default=True)
     date = models.DateTimeField(auto_now_add=True)
-    # label = models.ForeignKey(Labels, on_delete=models.PROTECT)
 
     def __str__(self):
         return f'{self.name}'
+
+

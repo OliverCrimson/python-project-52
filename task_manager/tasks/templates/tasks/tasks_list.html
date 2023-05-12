@@ -23,8 +23,8 @@
             <tr>
                 <td>{{ item.id }}</td>
                 <td><a href="{% url 'task_details' pk=item.id %}">{{ item.name }}</a></td>
-                <td>Author</td>
-                <td>{{ item.executor }}</td>
+                <td>{{ item.made_by.username }}</td>
+                <td>{{ item.executor.username }}</td>
                 <td>{{ item.date }}</td>
                 <td>
                        <a href="{% url 'task_edit' pk=item.id %}">Edit</a>

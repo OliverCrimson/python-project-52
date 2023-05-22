@@ -1,8 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth.views import LoginView, LogoutView
+from django.contrib.auth.views import LoginView
 from users.models import User
-from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
 from task_manager.messages import Flashes
 from django.contrib import messages
@@ -20,7 +19,7 @@ class Login(SuccessMessageMixin, LoginView):
     success_url = 'users_list'
     success_message = Flashes.LOGGED_IN.value
 
-#
+
 def logout_u(request):
     logout(request)
     messages.success(request, Flashes.LOGGED_OUT.value)

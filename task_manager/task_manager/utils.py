@@ -19,7 +19,7 @@ class Permission(UserPassesTestMixin):
         return self.request.user.id == user.id
 
     def handle_no_permission(self):
-        messages.warning(self.request, Flashes.NO_PREMISSION_USER_UPDATE.value)
+        messages.warning(self.request, Flashes.NO_PERMISSION_USER_UPDATE.value)
         return redirect(reverse_lazy('users_list'))
 
     def dispatch(self, request, *args, **kwargs):
@@ -27,7 +27,8 @@ class Permission(UserPassesTestMixin):
             messages.warning(self.request, Flashes.UNAUTHORIZED.value)
             return self.handle_no_permission()
         if not self.get_object().pk == self.request.user.pk:
-            messages.warning(self.request, Flashes.NO_PREMISSION_USER_UPDATE.value)
+            messages.warning(self.request,
+                             Flashes.NO_PEREMISSION_USER_UPDATE.value)
             return redirect('users_list')
         return super().dispatch(request, *args, **kwargs)
 
@@ -39,5 +40,5 @@ class TaskPermission(UserPassesTestMixin):
         return author == self.request.user
 
     def handle_no_permission(self):
-        messages.warning(self.request, Flashes.NO_PERMISSON_TASK.value)
+        messages.warning(self.request, Flashes.NO_PERMISSION_TASK.value)
         return redirect(reverse_lazy('tasks_list'))

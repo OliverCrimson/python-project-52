@@ -46,4 +46,3 @@ class StatusEdit(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     template_name = 'statuses/status_edit.html'
     success_url = reverse_lazy('status_list')
     success_message = Flashes.STATUS_UPDATE.value
-

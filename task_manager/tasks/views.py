@@ -1,19 +1,21 @@
-
 from django.contrib.messages.views import SuccessMessageMixin
-from django.views.generic import ListView, CreateView, UpdateView, DeleteView, DetailView
+from django.views.generic import ListView,\
+    CreateView, UpdateView, DeleteView, DetailView
 from django_filters.views import FilterView
 from django.urls import reverse_lazy
-from .models import Tasks, LabelRelativity
+from .models import Tasks
 from .forms import CreateTask
 from .filters import TaskFilter
 from task_manager.messages import Flashes
 from task_manager.utils import TaskPermission
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
 class TasksList(LoginRequiredMixin, ListView):
     model = Tasks
     template_name = 'tasks/tasks_list.html'
     context_object_name = 'tasks'
+
 
 class FilteredTasks(LoginRequiredMixin, FilterView):
     model = Tasks
@@ -22,8 +24,9 @@ class FilteredTasks(LoginRequiredMixin, FilterView):
     filterset_class = TaskFilter
 
 
-
-class TaskCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
+class TaskCreate(LoginRequiredMixin,
+                 SuccessMessageMixin,
+                 CreateView):
     model = Tasks
     form_class = CreateTask
     template_name = 'tasks/tasks_create.html'
@@ -36,23 +39,27 @@ class TaskCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
         return context
 
 
-class TaskEdit(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+class TaskEdit(LoginRequiredMixin,
+               SuccessMessageMixin,
+               UpdateView):
     model = Tasks
     form_class = CreateTask
     template_name = 'tasks/tasks_edit.html'
     success_url = reverse_lazy('tasks_list')
-    success_message = Flashes.NO_PERMISSON_TASK.value
+    success_message = Flashes.NO_PERMISSION_TASK.value
 
 
-class TaskDelete(LoginRequiredMixin, TaskPermission, SuccessMessageMixin, DeleteView):
+class TaskDelete(LoginRequiredMixin,
+                 TaskPermission,
+                 SuccessMessageMixin,
+                 DeleteView):
     model = Tasks
     template_name = 'tasks/tasks_delete.html'
     success_url = reverse_lazy('tasks_list')
-    success_message = Flashes.NO_PERMISSON_TASK.value
+    success_message = Flashes.NO_PERMISSION_TASK.value
 
 
 class TaskDetails(LoginRequiredMixin, DetailView):
     template_name = 'tasks/task_detail.html'
     model = Tasks
     context_object_name = 'tasks'
-

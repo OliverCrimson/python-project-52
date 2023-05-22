@@ -45,6 +45,3 @@ class LabelDelete(SuccessMessageMixin, DeleteView):
         except ProtectedError:
             messages.warning(self.request, Flashes.LABEL_ERROR.value)
             return redirect(reverse_lazy('labels_list'))
-
-
-

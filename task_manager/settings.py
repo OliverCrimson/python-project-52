@@ -67,6 +67,8 @@ MIDDLEWARE = [
     'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
+CSRF_TRUSTED_ORIGINS = ['web-project.up.railway.app']
+
 ROLLBAR = {
     'access_token': os.getenv('ROLLBAR_ACCESS_TOKEN'),
     'environment': 'development' if DEBUG else 'production',

@@ -69,6 +69,7 @@ MIDDLEWARE = [
 
 CSRF_COOKIE_DOMAIN = '*.railway.app'
 CSRF_TRUSTED_ORIGINS = 'https://web-project.up.railway.app'
+CSRF_COOKIE_SECURE=True
 
 ROLLBAR = {
     'access_token': os.getenv('ROLLBAR_ACCESS_TOKEN'),

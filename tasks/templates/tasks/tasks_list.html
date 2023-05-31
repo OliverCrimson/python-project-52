@@ -5,24 +5,24 @@
 {% load i18n %}
 
 {% block body %}
-    <h1>Tasks</h1>
+    <h1>{% translate "Tasks"%}</h1>
     <div>
-        <a href="{% url 'task_create' %}">Create task</a>
+        <a href="{% url 'task_create' %}">{% translate "Create task" %}</a>
     </div>
     <br>
 <form method="get">
         {% bootstrap_form filter.form %}
       <br>
-    <button type="submit" class="btn btn-primary">Show</button>
+    <button type="submit" class="btn btn-primary">{% translate "Show" %}</button>
     </form>
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Author</th>
-                <th>Executor</th>
-                <th>Created at</th>
+                <th>{% translate "Name" %}</th>
+                <th>{% translate "Author" %}</th>
+                <th>{% translate "Executor" %}</th>
+                <th>{% translate "Created at" %}</th>
 
             </tr>
         </thead>
@@ -35,9 +35,9 @@
                 <td>{{ item.executor.username }}</td>
                 <td>{{ item.date }}</td>
                 <td>
-                       <a href="{% url 'task_edit' pk=item.id %}">Edit</a>
+                       <a href="{% url 'task_edit' pk=item.id %}">{% translate "Edit" %}</a>
 
-                        <a href="{% url 'task_delete' pk=item.id %}">Delete</a>
+                        <a href="{% url 'task_delete' pk=item.id %}">{% translate "Delete" %}</a>
                 </td>
             </tr>
         {% endfor %}

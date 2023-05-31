@@ -1,6 +1,7 @@
 {% extends 'main_page/base.html' %}
-{% block title %} Main page {% endblock %}
+{% load i18n %}
+{% block title %} {% translate "Main page" %} {% endblock %}
 
 {% block body %}
-<h1>Main page</h1>
+<h1>{% translate "Main page" %}</h1>
 {% endblock %}

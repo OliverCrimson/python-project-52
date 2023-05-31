@@ -1,5 +1,6 @@
 from django import forms
 from .models import Tasks
+from django.utils.translation import gettext as _
 
 
 class CreateTask(forms.ModelForm):
@@ -15,4 +16,12 @@ class CreateTask(forms.ModelForm):
         widgets = {
             'made_by': forms.HiddenInput(),
             'labels': forms.SelectMultiple(),
+        }
+        labels = {
+            'name': _('Name'),
+            'description': _('Description'),
+            'status': _('Status'),
+            'made_by': _('Author'),
+            'executor': _('Executor'),
+            'labels': _('Labels'),
         }

@@ -1,14 +1,15 @@
 {% extends 'main_page/base.html' %}
+{% load i18n %}
 
 {% block body %}
-    <h1>Statuses</h1>
-    <a href="{% url 'create_status' %}">Create status</a>
+    <h1>{% translate "Statuses" %}</h1>
+    <a href="{% url 'create_status' %}">{% translate "Create status" %}</a>
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Status</th>
-                <th>Date</th>
+                <th>{% translate "Status" %}</th>
+                <th>{% translate "Date" %}</th>
 
             </tr>
         </thead>
@@ -19,8 +20,8 @@
                 <td>{{ item.name }}</td>
                 <td>{{ item.date }}</td>
                 <td>
-                    <a href="{% url 'edit_status' pk=item.id %}">Edit</a>
-                    <a href="{% url 'delete_status' pk=item.id %}">Delete</a>
+                    <a href="{% url 'edit_status' pk=item.id %}">{% translate "Edit" %}</a>
+                    <a href="{% url 'delete_status' pk=item.id %}">{% translate "Delete" %}</a>
                 </td>
             </tr>
         {% endfor %}

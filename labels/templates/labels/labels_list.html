@@ -1,15 +1,15 @@
 {% extends 'main_page/base.html' %}
-
+{% load i18n %}
 {% block body %}
-    <h1>Labels</h1>
-    <a href="{% url 'label_create' %}">Create label</a>
+    <h1>{% translate "Labels" %}</h1>
+    <a href="{% url 'label_create' %}">{% translate "Create Label" %}</a>
     <br>
     <table class="table">
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Date</th>
+                <th>{% translate "Name" %}</th>
+                <th>{% translate "Created at" %}</th>
 
             </tr>
         </thead>
@@ -20,8 +20,8 @@
                 <td>{{ item.name }}</td>
                 <td>{{ item.date }}</td>
                 <td>
-                    <a href="{% url 'label_edit' pk=item.id %}">Edit</a>
-                    <a href="{% url 'label_delete' pk=item.id %}">Delete</a>
+                    <a href="{% url 'label_edit' pk=item.id %}">{% translate "Edit" %}</a>
+                    <a href="{% url 'label_delete' pk=item.id %}">{% translate "Delete" %}</a>
                 </td>
             </tr>
         {% endfor %}

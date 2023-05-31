@@ -6,7 +6,7 @@ from statuses.models import Statuses
 from labels.models import Labels
 
 
-from django.utils.translation import gettext as _
+from django.utils.translation import gettext_lazy as _
 from django import forms
 
 
@@ -52,3 +52,8 @@ class TaskFilter(django_filters.FilterSet):
             'executor',
             'labels',
         )
+        labels = {
+            'status': _('Status'),
+            'executor': _('Executor'),
+            'labels': _('Labels'),
+        }

@@ -1,10 +1,10 @@
 {% extends 'main_page/base.html' %}
-
+{% load i18n %}
 {% block body %}
     <form action="" method="post">
         {% csrf_token %}
-        <h1>Delete status</h1>
-        <h3>Submit deletion of {{ statuses.name }}</h3>
-        <button type="submit" class="btn btn-danger">Delete</button>
+        <h1>{% translate "Delete status" %}</h1>
+        <h3>{% translate "Submit deletion of " %}{{ statuses.name }}</h3>
+        <button type="submit" class="btn btn-danger">{% translate "Delete" %}</button>
     </form>
 {% endblock %}

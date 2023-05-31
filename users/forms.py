@@ -1,5 +1,6 @@
 from django.contrib.auth.forms import UserCreationForm
 from . import models
+from django.utils.translation import gettext_lazy as _
 
 
 class UserRegistration(UserCreationForm):
@@ -13,8 +14,8 @@ class UserRegistration(UserCreationForm):
             'password1',
             'password2')
         labels = {
-            'first_name': 'First name',
-            'last_name': 'Last name',
-            'username': 'Username',
+            'first_name': _('First name'),
+            'last_name': _('Last name'),
+            'username': _('Username'),
 
         }

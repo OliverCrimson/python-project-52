@@ -16,7 +16,7 @@ class TaskFilter(django_filters.FilterSet):
         if value:
             made_by = getattr(self.request, 'user', None)
             if made_by:
-                return queryset.filter(creator=made_by)
+                return queryset.filter(made_by=made_by)
             return queryset.none()
         return queryset
 

@@ -28,7 +28,7 @@ class Permission(UserPassesTestMixin):
             return self.handle_no_permission()
         if not self.get_object().pk == self.request.user.pk:
             messages.warning(self.request,
-                             Flashes.NO_PEREMISSION_USER_UPDATE.value)
+                             Flashes.NO_PERMISSION_USER_UPDATE.value)
             return redirect('users_list')
         return super().dispatch(request, *args, **kwargs)
 

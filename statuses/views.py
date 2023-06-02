@@ -8,6 +8,7 @@ from .forms import StatusCreateForm
 from django.contrib.messages.views import SuccessMessageMixin
 from task_manager.messages import Flashes
 from django.contrib.auth.mixins import LoginRequiredMixin
+
 # Create your views here.
 
 
@@ -20,7 +21,7 @@ class StatusCreate(LoginRequiredMixin, SuccessMessageMixin, CreateView):
     model = Statuses
     template_name = 'statuses/status_create.html'
     success_url = reverse_lazy('status_list')
-    fields = ('name',)
+    form_class = StatusCreateForm
     success_message = Flashes.STATUS_CREATE.value
 
 

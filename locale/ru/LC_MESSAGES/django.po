@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-05-31 19:31+0300\n"
+"POT-Creation-Date: 2023-06-02 11:47+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
 #: labels/forms.py:12 labels/templates/labels/labels_list.html:11
-#: statuses/forms.py:12 tasks/forms.py:21
+#: statuses/forms.py:11 statuses/views.py:26
 #: tasks/templates/tasks/tasks_list.html:22
 msgid "Name"
 msgstr "Имя"
@@ -76,8 +76,7 @@ msgid "Save"
 msgstr "Изменить"
 
 #: labels/templates/labels/labels_list.html:4
-#: main_page/templates/main_page/base.html:30 tasks/filters.py:58
-#: tasks/forms.py:26
+#: main_page/templates/main_page/base.html:30
 msgid "Labels"
 msgstr "Метки"
 
@@ -138,8 +137,8 @@ msgstr "Удаление статуса"
 msgid "Create status"
 msgstr "Создать статус"
 
-#: statuses/templates/statuses/statuses_list.html:11 tasks/filters.py:56
-#: tasks/forms.py:23 tasks/templates/tasks/task_detail.html:16
+#: statuses/templates/statuses/statuses_list.html:11 tasks/filters.py:25
+#: tasks/templates/tasks/task_detail.html:16
 msgid "Status"
 msgstr "Статус"
 
@@ -233,32 +232,27 @@ msgstr "Задачу может удалить только её автор"
 msgid "You have no permission for updating another user"
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: tasks/filters.py:34
-msgid "Label"
-msgstr "Метка"
-
-#: tasks/filters.py:41
-msgid "My tasks"
-msgstr "Только мои задачи"
-
-#: tasks/filters.py:57 tasks/forms.py:25
-#: tasks/templates/tasks/task_detail.html:14
+#: tasks/filters.py:32 tasks/templates/tasks/task_detail.html:14
 #: tasks/templates/tasks/tasks_list.html:24
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: tasks/forms.py:22
-msgid "Description"
-msgstr "Описание"
+#: tasks/filters.py:37
+msgid "Label"
+msgstr "Метка"
 
-#: tasks/forms.py:24 tasks/templates/tasks/task_detail.html:15
-#: tasks/templates/tasks/tasks_list.html:23
-msgid "Author"
-msgstr "Автор"
+#: tasks/filters.py:44
+msgid "My tasks"
+msgstr "Только мои задачи"
 
 #: tasks/templates/tasks/task_detail.html:7
 msgid "Details"
 msgstr "Просмотр задачи"
+
+#: tasks/templates/tasks/task_detail.html:15
+#: tasks/templates/tasks/tasks_list.html:23
+msgid "Author"
+msgstr "Автор"
 
 #: tasks/templates/tasks/tasks_create.html:6
 msgid "Create Task"
@@ -308,3 +302,6 @@ msgstr "Изменить"
 #: users/templates/users/users_list.html:10
 msgid "Full name"
 msgstr "Полное имя"
+
+msgid "Description"
+msgstr "Описание"

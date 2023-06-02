@@ -7,7 +7,5 @@ class StatusCreateForm(ModelForm):
 
     class Meta:
         model = Statuses
-        fields = ('name',)
-        labels = {
-            'name': _('Name')
-        }
+        fields = ['name']
+        labels = {'name': _('Name')}
